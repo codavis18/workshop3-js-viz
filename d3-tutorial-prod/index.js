@@ -27,14 +27,19 @@ window.onload = function(){
   var svgCircles = d3.select("svg.circles");
   var svgMap = d3.select("svg.map").call(zoom);
 
-  var circles = svgCircles.selectAll('circle')
-                          .data(attributesEnter)
-                          .enter()
-                          .append("circle")
-                          .attr('fill', color)
-                          .attr('r', radius)
-                          .attr('cx', cx)
-                          .attr('cy', '50px');
+  var attributes = [{color: 'red', r: 40, cx: 100},  //example line
+                    {color: 'orange', r: 20, cx:75},
+                    {color: 'yellow' r: 15, cx:80},
+                    {color: 'green', r: 50, cx:30}];
+
+  var circles = svg.selectAll('circle')
+    .data(attributes)
+    .enter()
+    .append("circle")
+    .attr('fill', color)
+    .attr('r', radius)
+    .attr('cx', cx)
+    .attr('cy', '50px');
 
   // ADD THE attributesExit HERE! Remember to repeat at least one of the elements of attributesEnter
   // var attributesExit = ;
